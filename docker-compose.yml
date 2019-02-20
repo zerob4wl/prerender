@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  chrome:
+    image: zerob4wl/prerender
+    restart: always
+    ports:
+      - "8090:8090"
+    environment:
+      - "STORAGE_LOCATION=/cache-dir"
+      - "PORT=8090"
+    volumes:
+      - "./cache-dir:/cache-dir"
+    command: node /app/index.js
